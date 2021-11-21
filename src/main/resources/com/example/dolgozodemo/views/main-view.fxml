@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="1080.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dolgozodemo.controllers.MainController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+    <children>
+        <GridPane maxWidth="350.0" minWidth="300.0" prefWidth="300.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Button mnemonicParsing="false" onAction="#hozzaadClick" prefWidth="100.0" text="Hozzáad" />
+                <Button mnemonicParsing="false" onAction="#modositClick" prefWidth="100.0" text="Módosít" GridPane.columnIndex="1" />
+                <Button mnemonicParsing="false" onAction="#torolClick" prefWidth="100.0" text="Töröl" GridPane.columnIndex="2" />
+            </children>
+        </GridPane>
+        <ListView fx:id="dolgozoList" maxHeight="1080.0" prefHeight="300.0" prefWidth="320.0" stylesheets="@../css/listStyle.css" VBox.vgrow="ALWAYS" />
+    </children>
+</VBox>
