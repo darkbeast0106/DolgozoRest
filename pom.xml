@@ -82,10 +82,11 @@
                         </goals>
                         <configuration>
                             <name>DolgozoApp</name>
-                            <version>0.1.0</version>
+                            <version>1.0.0</version>
                             <mainClass>com.example.dolgozodemo.Main</mainClass>
                             <organizationName>Petrik</organizationName>
                             <platform>windows</platform>
+                            <bundleJre>true</bundleJre>
                         </configuration>
                     </execution>
                 </executions>
