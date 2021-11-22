@@ -47,7 +47,7 @@ public class HozzaadController extends Controller {
     }
 
     @FXML private void noClick(){
-        radioFerfi.setSelected(true);
-        radioNo.setSelected(false);
+        radioFerfi.setSelected(false);
+        radioNo.setSelected(true);
     }
 }
