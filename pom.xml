@@ -71,6 +71,7 @@
                 </executions>
             </plugin>
             <plugin>
+                <!-- https://github.com/fvarrui/JavaPackager -->
                 <groupId>io.github.fvarrui</groupId>
                 <artifactId>javapackager</artifactId>
                 <version>1.6.2</version>
