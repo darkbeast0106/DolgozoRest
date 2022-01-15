@@ -2,13 +2,11 @@ package com.example.dolgozodemo.controllers;
 
 import com.example.dolgozodemo.core.Controller;
 import com.example.dolgozodemo.models.Dolgozo;
-import com.example.dolgozodemo.models.DolgozoDB;
+import com.example.dolgozodemo.models.DolgozoApi;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
-
-import java.sql.SQLException;
 
 public class ModositController extends Controller {
     @FXML private TextField nevField;
@@ -16,16 +14,7 @@ public class ModositController extends Controller {
     @FXML private RadioButton radioNo;
     @FXML private Spinner<Integer> korSpinner;
     @FXML private Spinner<Integer> fizetesSpinner;
-    private DolgozoDB db;
     private Dolgozo modositando;
-
-    @FXML public void initialize() {
-        try {
-            db = new DolgozoDB();
-        } catch (SQLException e) {
-            hibaKiir(e);
-        }
-    }
 
     public Dolgozo getModositando() {
         return modositando;
@@ -45,7 +34,7 @@ public class ModositController extends Controller {
             radioFerfi.setSelected(false);
             radioNo.setSelected(true);
         }
-        korSpinner.getValueFactory().setValue(modositando.getEletkor());
+        korSpinner.getValueFactory().setValue(modositando.getKor());
         fizetesSpinner.getValueFactory().setValue(modositando.getFizetes());
     }
 
@@ -59,18 +48,14 @@ public class ModositController extends Controller {
             return;
         }
         try {
-            int erintettSorok = db.updateDolgozo(modositando.getId(), nev, nem, kor, fizetes);
-            if (erintettSorok != 1) {
-                throw new SQLException("Hiba történt a dolgozó törlése során");
-            } else {
-                modositando.setNev(nev);
-                modositando.setNem(nem);
-                modositando.setEletkor(kor);
-                modositando.setFizetes(fizetes);
-                alertWait("Dolgozó sikeresen módosítva");
-                this.stage.close();
-            }
-        } catch (SQLException e) {
+            DolgozoApi.updateDolgozo(modositando.getId(), nev, nem, kor, fizetes);
+            modositando.setNev(nev);
+            modositando.setNem(nem);
+            modositando.setKor(kor);
+            modositando.setFizetes(fizetes);
+            alertWait("Dolgozó sikeresen módosítva");
+            this.stage.close();
+        } catch (Exception e) {
             hibaKiir(e);
         }
     }

@@ -4,21 +4,21 @@ public class Dolgozo {
     private int id;
     private String nev;
     private String nem;
-    private int eletkor;
+    private int kor;
     private int fizetes;
 
-    public Dolgozo(int id, String nev, String nem, int eletkor, int fizetes) {
+    public Dolgozo(int id, String nev, String nem, int kor, int fizetes) {
         this.id = id;
         this.nev = nev;
         this.nem = nem;
-        this.eletkor = eletkor;
+        this.kor = kor;
         this.fizetes = fizetes;
     }
 
-    public Dolgozo(String nev, String nem,  int eletkor, int fizetes) {
+    public Dolgozo(String nev, String nem,  int kor, int fizetes) {
         this.nev = nev;
         this.nem = nem;
-        this.eletkor = eletkor;
+        this.kor = kor;
         this.fizetes = fizetes;
     }
 
@@ -46,12 +46,12 @@ public class Dolgozo {
         this.nem = nem;
     }
 
-    public int getEletkor() {
-        return eletkor;
+    public int getKor() {
+        return kor;
     }
 
-    public void setEletkor(int eletkor) {
-        this.eletkor = eletkor;
+    public void setKor(int kor) {
+        this.kor = kor;
     }
 
     public int getFizetes() {
@@ -64,7 +64,7 @@ public class Dolgozo {
 
     @Override
     public String toString() {
-        return String.format("%-20s %5s %4d év %8d Ft", nev, nem, eletkor, fizetes);
+        return String.format("%-20s %5s %4d év %8d Ft", nev, nem, kor, fizetes);
     }
 }
 

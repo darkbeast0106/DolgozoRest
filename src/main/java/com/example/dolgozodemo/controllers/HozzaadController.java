@@ -1,12 +1,11 @@
 package com.example.dolgozodemo.controllers;
 
 import com.example.dolgozodemo.core.Controller;
-import com.example.dolgozodemo.models.Dolgozo;
-import com.example.dolgozodemo.models.DolgozoDB;
+import com.example.dolgozodemo.models.DolgozoApi;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-
-import java.sql.SQLException;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.TextField;
 
 public class HozzaadController extends Controller {
     @FXML private TextField nevField;
@@ -14,15 +13,6 @@ public class HozzaadController extends Controller {
     @FXML private RadioButton radioNo;
     @FXML private Spinner<Integer> korSpinner;
     @FXML private Spinner<Integer> fizetesSpinner;
-    private DolgozoDB db;
-
-    @FXML public void initialize() {
-        try {
-            db = new DolgozoDB();
-        } catch (SQLException e) {
-            hibaKiir(e);
-        }
-    }
 
     @FXML private void hozzaadClick(){
         String nev = nevField.getText();
@@ -34,9 +24,9 @@ public class HozzaadController extends Controller {
             return;
         }
         try {
-            db.insertDolgozo(nev, nem, kor, fizetes);
+            DolgozoApi.insertDolgozo(nev, nem, kor, fizetes);
             alert("Dolgozó sikeresen hozzáadva");
-        } catch (SQLException e) {
+        } catch (Exception e) {
             hibaKiir(e);
         }
     }

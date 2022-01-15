@@ -100,6 +100,7 @@ public final class RequestHandler {
 
         conn.setReadTimeout(15000);
         conn.setConnectTimeout(15000);
+        conn.setRequestProperty("Accept", "application/json");
         return conn;
     }
 }
