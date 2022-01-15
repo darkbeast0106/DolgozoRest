@@ -65,7 +65,7 @@ public abstract class Controller {
         alertCreate(AlertType.NONE, "", "", message).showAndWait();
     }
 
-    protected Controller newWindow(String fxml, String title, int width, int height) throws IOException {
+    public static Controller newWindow(String fxml, String title, int width, int height) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(DolgozoApp.class.getResource(fxml));
         Scene scene = new Scene(fxmlLoader.load(), width, height);
